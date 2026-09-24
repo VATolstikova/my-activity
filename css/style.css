@@ -1,0 +1,549 @@
+/* Основные стили */
+:root {
+    --bg-dark: #0a0a0f;
+    --bg-darker: #050508;
+    --bg-card: #1a1a24;
+    --neon-pink: #ff00ff;
+    --neon-pink-light: #ff66ff;
+    --neon-pink-dark: #cc00cc;
+    --text-light: #f0f0f5;
+    --text-gray: #a0a0b0;
+    --success: #00ff88;
+    --danger: #ff3366;
+    --warning: #ffcc00;
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Навигация */
+.navbar {
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--neon-pink);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-pink-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--neon-pink);
+    background: rgba(255, 0, 255, 0.1);
+}
+
+.nav-link.active {
+    color: var(--neon-pink);
+    background: rgba(255, 0, 255, 0.15);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: var(--neon-pink);
+    border-radius: 2px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-pink-dark));
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 255, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--neon-pink);
+    border: 2px solid var(--neon-pink);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 0, 255, 0.1);
+}
+
+/* Главная страница */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-pink-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.movie-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 0, 255, 0.1);
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 255, 0.2);
+    border-color: var(--neon-pink);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 1.5rem;
+}
+
+.movie-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--neon-pink-light);
+}
+
+.movie-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.sessions-list {
+    margin-top: 1rem;
+}
+
+.session-time {
+    display: inline-block;
+    background: rgba(255, 0, 255, 0.1);
+    color: var(--neon-pink);
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.session-time:hover {
+    background: var(--neon-pink);
+    color: white;
+}
+
+/* Страница фильма */
+.movie-detail {
+    padding: 3rem 0;
+}
+
+.movie-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.movie-poster-large {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.movie-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--neon-pink-light);
+}
+
+.movie-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+.movie-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat {
+    background: rgba(255, 0, 255, 0.05);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--neon-pink);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--neon-pink);
+}
+
+/* Зал для бронирования */
+.cinema-hall {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+}
+
+.hall-screen {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    height: 20px;
+    margin: 0 auto 3rem;
+    width: 80%;
+    border-radius: 50%;
+    text-align: center;
+    color: var(--text-gray);
+    padding-top: 10px;
+    font-size: 0.9rem;
+}
+
+.seats-grid {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.seat {
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.seat-available {
+    background: rgba(0, 255, 136, 0.1);
+    border: 2px solid var(--success);
+    color: var(--success);
+}
+
+.seat-available:hover {
+    background: rgba(0, 255, 136, 0.3);
+    transform: scale(1.1);
+}
+
+.seat-unavailable {
+    background: rgba(255, 51, 102, 0.2);
+    border: 2px solid var(--danger);
+    color: var(--danger);
+    cursor: not-allowed;
+}
+
+.seat-selected {
+    background: rgba(255, 204, 0, 0.3);
+    border: 2px solid var(--warning);
+    color: var(--warning);
+    transform: scale(1.1);
+}
+
+.section-divider {
+    grid-column: 1 / -1;
+    height: 20px;
+    text-align: center;
+    color: var(--neon-pink);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+/* Формы */
+.auth-form {
+    max-width: 400px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-gray);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    border-radius: 6px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.1);
+}
+
+/* Уведомления */
+.alert {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.alert-error {
+    background: rgba(255, 51, 102, 0.1);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* Личный кабинет */
+.profile-header {
+    background: linear-gradient(45deg, rgba(255,0,255,0.1), rgba(255,102,255,0.05));
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-pink-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.orders-table {
+    width: 100%;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin: 2rem 0;
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 0, 255, 0.1);
+}
+
+.orders-table th {
+    background: rgba(255, 0, 255, 0.1);
+    color: var(--neon-pink);
+    font-weight: 600;
+}
+
+.status-active {
+    color: var(--success);
+    background: rgba(0, 255, 136, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-cancelled {
+    color: var(--danger);
+    background: rgba(255, 51, 102, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Билет */
+.ticket {
+    background: linear-gradient(135deg, #1a1a24 0%, #2a2a34 100%);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 2px solid var(--neon-pink);
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-pink-light), var(--neon-pink));
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.ticket-number {
+    font-size: 1.2rem;
+    color: var(--neon-pink);
+    font-weight: bold;
+}
+
+.ticket-body {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.ticket-qr {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: black;
+}
+
+/* Подвал */
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 0, 255, 0.2);
+    text-align: center;
+    color: var(--text-gray);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .movie-header {
+        grid-template-columns: 1fr;
+    }
+    
+    .seats-grid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+    
+    .ticket-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
