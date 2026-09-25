@@ -1,0 +1,124 @@
+/* Файл: style.css */
+:root {
+    --primary: #ff6b81;
+    --primary-hover: #ff4757;
+    --bg-body: #fff0f3;
+    --bg-card: #ffffff;
+    --text-main: #2f3542;
+    --text-light: #747d8c;
+    --border: #ffeaa7;
+    --danger: #ff4757;
+    --success: #2ed573;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px; /* Для форм */
+    padding: 20px;
+}
+
+.container-wide {
+    max-width: 900px; /* Для дашборда */
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255, 107, 129, 0.15);
+    text-align: center;
+}
+
+h1, h2 { color: var(--primary); margin-bottom: 20px; }
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover { background-color: var(--primary-hover); }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.alert-error { background: #ffecec; color: var(--danger); }
+.alert-success { background: #eaffea; color: var(--success); }
+
+/* Task Tracker Styles */
+.task-list { list-style: none; padding: 0; }
+.task-item {
+    background: white;
+    border-left: 5px solid var(--primary);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    cursor: grab;
+}
+.task-item.done { opacity: 0.6; border-left-color: var(--success); text-decoration: line-through; }
+.task-item.dragging { opacity: 0.5; background: #f9f9f9; }
+
+.priority-high { border-left-color: var(--danger); }
+.priority-medium { border-left-color: #ffa502; }
+.priority-low { border-left-color: #1e90ff; }
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.controls input { margin-bottom: 0; flex: 1; }
+.controls select { width: auto; margin-bottom: 0; }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+}
+.close-modal { position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 20px;}
